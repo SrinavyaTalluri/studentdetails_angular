@@ -1,0 +1,28 @@
+<h2>Student Details</h2>
+
+<button (click)="logout()">Logout</button>
+
+<div>
+  <input [(ngModel)]="currentStudent.name" placeholder="Name" />
+  <input [(ngModel)]="currentStudent.grade" placeholder="Grade" />
+  <button (click)="addOrUpdate()">{{ isEdit ? 'Update' : 'Add' }}</button>
+  <button (click)="resetForm()">Clear</button>
+</div>
+
+<table border="1">
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Grade</th>
+    <th>Actions</th>
+  </tr>
+  <tr *ngFor="let s of students">
+    <td>{{ s.id }}</td>
+    <td>{{ s.name }}</td>
+    <td>{{ s.grade }}</td>
+    <td>
+      <button (click)="edit(s)">Edit</button>
+      <button (click)="delete(s.id)">Delete</button>
+    </td>
+  </tr>
+</table>
